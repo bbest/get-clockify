@@ -15,6 +15,9 @@ knitr::opts_chunk$set(echo = T, message = F)
 
 ## IEA Monthly
 
+- using: [clockify](https://datawookie.github.io/clockify/) R package, which uses the [Clockify API](https://clockify.me/developers-api#tag-Time-entry)
+
+
 ```{r}
 if (!require(librarian)){
   install.packages("librarian")
