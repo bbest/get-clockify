@@ -1,0 +1,64 @@
+---
+title: "iea-auto monthly+"
+author: "Ben Best"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    code_folding: hide
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T, message = F)
+```
+
+## IEA Monthly
+
+```{r}
+if (!require(librarian)){
+  install.packages("librarian")
+  library(librarian)
+}
+librarian::shelf(
+  clockify, dplyr, DT, glue, readr)
+
+# CLOCKIFY_API_KEY = Sys.getenv("CLOCKIFY_API_KEY")
+CLOCKIFY_API_KEY = readLines("~/My Drive (ben@ecoquants.com)/private/clockify-api-key_ben@ecoquants.com.txt")
+set_api_key(CLOCKIFY_API_KEY)
+
+library(logger)
+log_threshold(DEBUG)
+
+t_beg = Sys.Date() - 40
+t_end = Sys.time()
+
+paste(t_beg, "to", t_end)
+  
+d_times <- time_entries(
+  #start = "2021-10-01 00:00:00",
+  #end   = "2021-11-05 00:00:00",
+  start = format(t_beg, '%Y-%m-%d 00:00:00'),
+  end   = format(t_end, '%Y-%m-%d %H:%M:%S'),
+  concise = F) %>% 
+  left_join(
+    projects() %>% 
+      select(project_id, project_name), 
+    by = "project_id") %>% 
+  mutate(
+    date_start = as.Date(time_start))
+
+d <- d_times %>% 
+  filter(project_name == "iea-auto") %>% 
+  group_by(date_start) %>% 
+  summarize(
+    duration_hrs = round(sum(duration)/60, 1),
+    description  = paste(description, collapse = " ; "))
+write_csv(d, "data/iea-auto_2021-10.csv")
+
+# TODO:
+# - [ ] link to csv
+# - [ ] summarize by last month with hours
+datatable(d)
+```
+
