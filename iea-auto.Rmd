@@ -60,6 +60,17 @@ d_proj <- d_times %>%
     day = format(date, "%a")) %>% 
   select(day, date, hrs, description) %>% 
   arrange(desc(date))
+
+timetable <- function(d){
+  d %>% 
+    select(-day) %>% 
+    datatable(
+      rownames = F,
+      extensions = 'Buttons', options = list(
+        dom = 'Bfrtip',
+        buttons = c('copy', 'csv', 'excel'))) %>% 
+  formatDate("date", "toDateString")
+}
 ```
 
 ## This Week: `r format(t_beg_thiswk, '%a %m/%d')` to `r format(t_now, '%a %m/%d')`
@@ -71,13 +82,10 @@ d_thiswk <- d_proj %>%
     date >= t_beg_thiswk)
 write_csv(d_thiswk, glue("data/iea-auto_thiswk_{as.Date(t_now)}.csv"))
 
-d_thiswk %>% 
-  select(-day) %>% 
-  datatable(rownames = F) %>% 
-  formatDate("date", "toDateString")
+timetable(d_thiswk)
 ```
 
-- Hours this week: ``r sum(d_thiswk$hrs)`
+- Hours this week: `r sum(d_thiswk$hrs)`
 
 ## This Month: `r format(t_now, '%B %Y-%m')`
 
@@ -88,13 +96,10 @@ d_thismo <- d_proj %>%
     date >= t_beg_thismo)
 write_csv(d_thismo, glue("data/iea-auto_thismo_{as.Date(t_now)}.csv"))
 
-d_thismo %>% 
-  select(-day) %>% 
-  datatable(rownames = F) %>% 
-  formatDate("date", "toDateString")
+timetable(d_thismo)
 ```
 
-- Hours this month: ``r sum(d_thismo$hrs)`
+- Hours this month: `r sum(d_thismo$hrs)`
 
 ## Last Month: `r format(t_end_lastmo, '%B %Y-%m')`
 
@@ -105,17 +110,10 @@ d_lastmo <- d_proj %>%
     date >= t_beg_lastmo)
 write_csv(d_lastmo, glue("data/iea-auto_lastmo_{as.Date(t_now)}.csv"))
 
-d_lastmo %>% 
-  select(-day) %>% 
-  datatable(
-    rownames = F,
-    extensions = 'Buttons', options = list(
-      dom = 'Bfrtip',
-      buttons = c('copy', 'csv', 'excel'))) %>% 
-  formatDate("date", "toDateString")
+timetable(d_lastmo)
 ```
 
-- Hours lst month: ``r sum(d_lastmo$hrs)`
+- Hours lst month: `r sum(d_lastmo$hrs)`
 
 
 ## References
