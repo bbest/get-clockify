@@ -13,36 +13,34 @@ editor_options:
 knitr::opts_chunk$set(echo = T, message = F)
 ```
 
-## IEA Monthly
-
-- using: [clockify](https://datawookie.github.io/clockify/) R package, which uses the [Clockify API](https://clockify.me/developers-api#tag-Time-entry)
-
-
-```{r}
+```{r libs}
 if (!require(librarian)){
   install.packages("librarian")
   library(librarian)
 }
 librarian::shelf(
-  clockify, dplyr, DT, glue, readr)
+  clockify, dplyr, DT, glue, lubridate, readr)
 
 # CLOCKIFY_API_KEY = Sys.getenv("CLOCKIFY_API_KEY")
 CLOCKIFY_API_KEY = readLines("~/My Drive (ben@ecoquants.com)/private/clockify-api-key_ben@ecoquants.com.txt")
 set_api_key(CLOCKIFY_API_KEY)
 
-library(logger)
-log_threshold(DEBUG)
+# library(logger)
+# log_threshold(DEBUG)
+```
 
-t_beg = Sys.Date() - 40
-t_end = Sys.time()
-
-paste(t_beg, "to", t_end)
+```{r times}
+project_name <- "iea-auto"
   
+t_now        <- Sys.time() 
+t_beg_thiswk <- as.Date(t_now) - days(7)
+t_beg_thismo <- date(glue("{year(t_now)}-{month(t_now)}-01"))
+t_end_lastmo <- date(glue("{year(t_now)}-{month(t_now)}-01")) - days(1)
+t_beg_lastmo <- date(glue("{year(t_end_lastmo)}-{month(t_end_lastmo)}-01")) - days(1)
+
 d_times <- time_entries(
-  #start = "2021-10-01 00:00:00",
-  #end   = "2021-11-05 00:00:00",
-  start = format(t_beg, '%Y-%m-%d 00:00:00'),
-  end   = format(t_end, '%Y-%m-%d %H:%M:%S'),
+  start = format(t_beg_lastmo, '%Y-%m-%d 00:00:00'),
+  end   = format(t_now, '%Y-%m-%d %H:%M:%S'),
   concise = F) %>% 
   left_join(
     projects() %>% 
@@ -51,17 +49,75 @@ d_times <- time_entries(
   mutate(
     date_start = as.Date(time_start))
 
-d <- d_times %>% 
-  filter(project_name == "iea-auto") %>% 
-  group_by(date_start) %>% 
+d_proj <- d_times %>% 
+  filter(project_name == !!project_name) %>% 
+  rename(date = date_start) %>% 
+  group_by(date) %>% 
   summarize(
-    duration_hrs = round(sum(duration)/60, 1),
-    description  = paste(description, collapse = " ; "))
-write_csv(d, "data/iea-auto_2021-10.csv")
-
-# TODO:
-# - [ ] link to csv
-# - [ ] summarize by last month with hours
-datatable(d)
+    hrs          = round(sum(duration)/60, 1),
+    description  = paste(description, collapse = " ; ")) %>% 
+  mutate(
+    day = format(date, "%a")) %>% 
+  select(day, date, hrs, description) %>% 
+  arrange(desc(date))
 ```
 
+## This Week: `r format(t_beg_thiswk, '%a %m/%d')` to `r format(t_now, '%a %m/%d')`
+
+```{r}
+d_thiswk <- d_proj %>% 
+  filter(
+    date <= t_now,
+    date >= t_beg_thiswk)
+write_csv(d_thiswk, glue("data/iea-auto_thiswk_{as.Date(t_now)}.csv"))
+
+d_thiswk %>% 
+  select(-day) %>% 
+  datatable(rownames = F) %>% 
+  formatDate("date", "toDateString")
+```
+
+- Hours this week: ``r sum(d_thiswk$hrs)`
+
+## This Month: `r format(t_now, '%B %Y-%m')`
+
+```{r}
+d_thismo <- d_proj %>% 
+  filter(
+    date <= t_now,
+    date >= t_beg_thismo)
+write_csv(d_thismo, glue("data/iea-auto_thismo_{as.Date(t_now)}.csv"))
+
+d_thismo %>% 
+  select(-day) %>% 
+  datatable(rownames = F) %>% 
+  formatDate("date", "toDateString")
+```
+
+- Hours this month: ``r sum(d_thismo$hrs)`
+
+## Last Month: `r format(t_end_lastmo, '%B %Y-%m')`
+
+```{r}
+d_lastmo <- d_proj %>% 
+  filter(
+    date <= t_end_lastmo,
+    date >= t_beg_lastmo)
+write_csv(d_lastmo, glue("data/iea-auto_lastmo_{as.Date(t_now)}.csv"))
+
+d_lastmo %>% 
+  select(-day) %>% 
+  datatable(
+    rownames = F,
+    extensions = 'Buttons', options = list(
+      dom = 'Bfrtip',
+      buttons = c('copy', 'csv', 'excel'))) %>% 
+  formatDate("date", "toDateString")
+```
+
+- Hours lst month: ``r sum(d_lastmo$hrs)`
+
+
+## References
+
+- using: [clockify](https://datawookie.github.io/clockify/) R package, which uses the [Clockify API](https://clockify.me/developers-api#tag-Time-entry)
