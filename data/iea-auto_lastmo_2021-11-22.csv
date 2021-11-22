@@ -1,0 +1,15 @@
+day,date,hrs,description
+Wed,2021-10-27,0.5,ca-esr-info created new GH repo and outlined next steps in issues w/ Jai
+Tue,2021-10-26,1,NMFS R UG: 508 & RMarkdowon
+Mon,2021-10-25,3,ecodata-up got Excel upload working (from Fri)
+Thu,2021-10-21,2,got layout to work w/ drag n drop & table preview of upload/target noaa-iea/ecoidx-up#3 ; CCIEA data & viz
+Wed,2021-10-20,0.6,send out Google Survey for r3-train
+Tue,2021-10-19,5.5,FKNMS Advisory Council Meeting: Ellen's presentation on fk-esr-info ; ecodata-up#1 get plots loaded based on attributes ; ecodata-up#1 get plots loaded based on attributes ; ecodata-up rollout w/ Kim & Abby + git pull request thru GH Action for kimberly-bastille/ecopull + RStudio Connect ; noaa-iea/fk-esr-info#31 hover label too low w/ Jai
+Fri,2021-10-15,0.4,IEA weekly wrapup w/ Jai & plan
+Thu,2021-10-14,1.3,Shiny: successfully published Rmd doc and Shiny app! ; NOAA FIT Tech: RStudio Connect on publishing Rmd docs and Shiny apps
+Tue,2021-10-12,0.7,dev tech reporting strategies (ie Fridays w/ Tehseen) noaa-iea/noaa-iea.github.io#4
+Thu,2021-10-07,2.1,CA: ecoidx-up Google login enable noaa-iea/ecoidx-up#2 ; CCIEA data & viz: met w/ Nick to discuss strategy (git push vs pull request) for ecoidx-up and ggplot2 functions
+Tue,2021-10-05,0.4,iea-auto dev sesh: fk-esr-info Fullscreen tweaks w/ Jai
+Mon,2021-10-04,1.5,MBON BEF / IEA: coordinate with MBON BEF and present
+Sun,2021-10-03,2.2,"IEA / MBON gallery, strategy"
+Thu,2021-09-30,0.6,ecodata-up checkin

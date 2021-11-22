@@ -193,7 +193,7 @@ pre code {
 
 <h1 class="title toc-ignore">iea-auto monthly+</h1>
 <h4 class="author">Ben Best</h4>
-<h4 class="date">08 November, 2021</h4>
+<h4 class="date">22 November, 2021</h4>
 
 </div>
 
@@ -252,8 +252,8 @@ timetable &lt;- function(d){
         buttons = c(&#39;copy&#39;, &#39;csv&#39;, &#39;excel&#39;))) %&gt;% 
   formatDate(&quot;date&quot;, &quot;toDateString&quot;)
 }</code></pre>
-<div id="this-week-mon-1101-to-mon-1108" class="section level2">
-<h2>This Week: Mon 11/01 to Mon 11/08</h2>
+<div id="this-week-mon-1115-to-mon-1122" class="section level2">
+<h2>This Week: Mon 11/15 to Mon 11/22</h2>
 <pre class="r"><code>d_thiswk &lt;- d_proj %&gt;% 
   filter(
     date &lt;= t_now,
@@ -261,10 +261,10 @@ timetable &lt;- function(d){
 write_csv(d_thiswk, glue(&quot;data/iea-auto_thiswk_{as.Date(t_now)}.csv&quot;))
 
 timetable(d_thiswk)</code></pre>
-<div id="htmlwidget-30c602b14e913c54fff6" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-30c602b14e913c54fff6">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["2021-11-05","2021-11-04","2021-11-03","2021-11-02"],[1,4.4,0.8,2],["#get-clockify update thismo &amp; lastmo","clockify-api for iea-auto time ; @ecoidx-up mix n match  noaa-iea/ecoidx-up#3 ; CCIEA data &amp; viz: discuss ecoidx-up","iea-auto dev sesh: met w/ Jai and discussed ak-info w/ email to Marysia, plus Drupal approaches and ecoidx-up latest","GOA IEA Team Meeting: discuss Sitka infographics w/ latest illustration from Amanda Dillon ; DataUpload.Workplan for ecoidx-up w/ Greg &amp; Lynn"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>date<\/th>\n      <th>hrs<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["copy","csv","excel"],"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatDate(data, \"toDateString\");\n  }"},{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
+<div id="htmlwidget-f7afd786a5ced3e2b78c" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f7afd786a5ced3e2b78c">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["2021-11-19","2021-11-18","2021-11-16"],[0.9,2,0.3],["IEA weekly wrapup","#ecoidx-up bucket list shiny app","iea-auto dev sesh w/ Jai on Drupal review"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>date<\/th>\n      <th>hrs<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["copy","csv","excel"],"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatDate(data, \"toDateString\");\n  }"},{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 <ul>
-<li>Hours this week: 8.2</li>
+<li>Hours this week: 3.2</li>
 </ul>
 </div>
 <div id="this-month-november-2021-11" class="section level2">
@@ -276,10 +276,10 @@ timetable(d_thiswk)</code></pre>
 write_csv(d_thismo, glue(&quot;data/iea-auto_thismo_{as.Date(t_now)}.csv&quot;))
 
 timetable(d_thismo)</code></pre>
-<div id="htmlwidget-390b2fd88be46cf3836d" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-390b2fd88be46cf3836d">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["2021-11-05","2021-11-04","2021-11-03","2021-11-02"],[1,4.4,0.8,2],["#get-clockify update thismo &amp; lastmo","clockify-api for iea-auto time ; @ecoidx-up mix n match  noaa-iea/ecoidx-up#3 ; CCIEA data &amp; viz: discuss ecoidx-up","iea-auto dev sesh: met w/ Jai and discussed ak-info w/ email to Marysia, plus Drupal approaches and ecoidx-up latest","GOA IEA Team Meeting: discuss Sitka infographics w/ latest illustration from Amanda Dillon ; DataUpload.Workplan for ecoidx-up w/ Greg &amp; Lynn"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>date<\/th>\n      <th>hrs<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["copy","csv","excel"],"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatDate(data, \"toDateString\");\n  }"},{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
+<div id="htmlwidget-239c7894ee958f9bd4b2" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-239c7894ee958f9bd4b2">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["2021-11-19","2021-11-18","2021-11-16","2021-11-12","2021-11-11","2021-11-10","2021-11-08","2021-11-05","2021-11-04","2021-11-03","2021-11-02"],[0.9,2,0.3,2.5,0.8,1,1,1,4.4,0.8,2],["IEA weekly wrapup","#ecoidx-up bucket list shiny app","iea-auto dev sesh w/ Jai on Drupal review","IEA weekly wrapup ; IEA Automation check-in ; CCIEA  ecoidx-up update ; IEA automation chat: Stephanie &amp; Kenric mtg","iea-auto dev sesh","RCG  Meeting: meet RCG, Caelum","get Sitka infographic online","#get-clockify update thismo &amp; lastmo","clockify-api for iea-auto time ; @ecoidx-up mix n match  noaa-iea/ecoidx-up#3 ; CCIEA data &amp; viz: discuss ecoidx-up","iea-auto dev sesh: met w/ Jai and discussed ak-info w/ email to Marysia, plus Drupal approaches and ecoidx-up latest","GOA IEA Team Meeting: discuss Sitka infographics w/ latest illustration from Amanda Dillon ; DataUpload.Workplan for ecoidx-up w/ Greg &amp; Lynn"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>date<\/th>\n      <th>hrs<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["copy","csv","excel"],"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatDate(data, \"toDateString\");\n  }"},{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 <ul>
-<li>Hours this month: 8.2</li>
+<li>Hours this month: 16.7</li>
 </ul>
 </div>
 <div id="last-month-october-2021-10" class="section level2">
@@ -291,8 +291,8 @@ timetable(d_thismo)</code></pre>
 write_csv(d_lastmo, glue(&quot;data/iea-auto_lastmo_{as.Date(t_now)}.csv&quot;))
 
 timetable(d_lastmo)</code></pre>
-<div id="htmlwidget-d4702120620751253b00" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d4702120620751253b00">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["2021-10-27","2021-10-26","2021-10-25","2021-10-21","2021-10-20","2021-10-19","2021-10-15","2021-10-14","2021-10-12","2021-10-07","2021-10-05","2021-10-04","2021-10-03","2021-09-30"],[0.5,1,3,2,0.6,5.5,0.4,1.3,0.7,2.1,0.4,1.5,2.2,0.6],["ca-esr-info created new GH repo and outlined next steps in issues w/ Jai","NMFS R UG: 508 &amp; RMarkdowon","ecodata-up got Excel upload working (from Fri)","got layout to work w/ drag n drop &amp; table preview of upload/target noaa-iea/ecoidx-up#3 ; CCIEA data &amp; viz","send out Google Survey for r3-train","FKNMS Advisory Council Meeting: Ellen's presentation on fk-esr-info ; ecodata-up#1 get plots loaded based on attributes ; ecodata-up#1 get plots loaded based on attributes ; ecodata-up rollout w/ Kim &amp; Abby + git pull request thru GH Action for kimberly-bastille/ecopull + RStudio Connect ; noaa-iea/fk-esr-info#31 hover label too low w/ Jai","IEA weekly wrapup w/ Jai &amp; plan","Shiny: successfully published Rmd doc and Shiny app! ; NOAA FIT Tech: RStudio Connect on publishing Rmd docs and Shiny apps","dev tech reporting strategies (ie Fridays w/ Tehseen) noaa-iea/noaa-iea.github.io#4","CA: ecoidx-up Google login enable noaa-iea/ecoidx-up#2 ; CCIEA data &amp; viz: met w/ Nick to discuss strategy (git push vs pull request) for ecoidx-up and ggplot2 functions","iea-auto dev sesh: fk-esr-info Fullscreen tweaks w/ Jai","MBON BEF / IEA: coordinate with MBON BEF and present","IEA / MBON gallery, strategy","ecodata-up checkin"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>date<\/th>\n      <th>hrs<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["copy","csv","excel"],"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatDate(data, \"toDateString\");\n  }"},{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
+<div id="htmlwidget-1182d54488c829a3db32" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1182d54488c829a3db32">{"x":{"filter":"none","vertical":false,"extensions":["Buttons"],"data":[["2021-10-27","2021-10-26","2021-10-25","2021-10-21","2021-10-20","2021-10-19","2021-10-15","2021-10-14","2021-10-12","2021-10-07","2021-10-05","2021-10-04","2021-10-03","2021-09-30"],[0.5,1,3,2,0.6,5.5,0.4,1.3,0.7,2.1,0.4,1.5,2.2,0.6],["ca-esr-info created new GH repo and outlined next steps in issues w/ Jai","NMFS R UG: 508 &amp; RMarkdowon","ecodata-up got Excel upload working (from Fri)","got layout to work w/ drag n drop &amp; table preview of upload/target noaa-iea/ecoidx-up#3 ; CCIEA data &amp; viz","send out Google Survey for r3-train","FKNMS Advisory Council Meeting: Ellen's presentation on fk-esr-info ; ecodata-up#1 get plots loaded based on attributes ; ecodata-up#1 get plots loaded based on attributes ; ecodata-up rollout w/ Kim &amp; Abby + git pull request thru GH Action for kimberly-bastille/ecopull + RStudio Connect ; noaa-iea/fk-esr-info#31 hover label too low w/ Jai","IEA weekly wrapup w/ Jai &amp; plan","Shiny: successfully published Rmd doc and Shiny app! ; NOAA FIT Tech: RStudio Connect on publishing Rmd docs and Shiny apps","dev tech reporting strategies (ie Fridays w/ Tehseen) noaa-iea/noaa-iea.github.io#4","CA: ecoidx-up Google login enable noaa-iea/ecoidx-up#2 ; CCIEA data &amp; viz: met w/ Nick to discuss strategy (git push vs pull request) for ecoidx-up and ggplot2 functions","iea-auto dev sesh: fk-esr-info Fullscreen tweaks w/ Jai","MBON BEF / IEA: coordinate with MBON BEF and present","IEA / MBON gallery, strategy","ecodata-up checkin"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>date<\/th>\n      <th>hrs<\/th>\n      <th>description<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"dom":"Bfrtip","buttons":["copy","csv","excel"],"columnDefs":[{"targets":0,"render":"function(data, type, row, meta) {\n    return type !== 'display' ? data : DTWidget.formatDate(data, \"toDateString\");\n  }"},{"className":"dt-right","targets":1}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":["options.columnDefs.0.render"],"jsHooks":[]}</script>
 <ul>
 <li>Hours lst month: 21.8</li>
 </ul>
